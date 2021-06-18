@@ -44,17 +44,6 @@ router.post('/addDirection',async (req,res)=>{
     res.redirect('/directions/'+id)
 })
 
-router.get('/deleteDirection/$id/$direction',async (req,res)=>{
-    console.log(req.params)
-    await Client.updateOne(
-        { _id: id },
-        { $push: { direction: direction } },
-    )
-    res.redirect('/directions/'+id)
-})
-
-
-
 router.get('/delete/:id', async(req,res)=>{
     const id = req.params.id
      await Client.remove({_id: id})

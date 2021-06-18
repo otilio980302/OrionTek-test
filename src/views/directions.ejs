@@ -13,7 +13,7 @@
 <body >
     <nav class="navbar navbar-dark bg-dark">
         
-        <a href="/" class="navbar-brand"> CRUD NodeMongo</a>
+        <a href="/" class="navbar-brand"> OrionTek</a>
     </nav>
 
         <h2>Cliente: <%=client.name%></h2>
@@ -30,16 +30,14 @@
                     <thead>
                         <tr>
                             <th>Directions</th>
-                            <th>Operations</th>
                         </tr>
                     </thead>
                     <tbody>
                         <%for(var i = 0; i < client.direction.length; i++){%>
-                        <tr>
-                            <td><%=client.direction[i]%></td>
-                            <td><a class="btn btn-danger" href="/deleteDirection/<%client._id%>/<%client.direction[i]%>">Delete</a></td>
-                        </tr>
-                        <%}%>
+                            <tr>
+                                <td><%=client.direction[i]%></td>
+                            </tr>
+                            <%}%>
                     </tbody>
                 </table>
             </div>
