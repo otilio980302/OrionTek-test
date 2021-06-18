@@ -1,0 +1,54 @@
+<%- include ("partials/_header") %>
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-5">
+            <!-- form -->
+            <div class="card">
+                <div class="card-body">
+                    <form action="/add" method="POST">
+                        <div  class="form-group">
+                            <input type="text" name="name" placeholder="Name" class="form-control" required>
+                        </div>
+                        <div  class="form-group">
+                            <input type="text" name="direction" placeholder="Direction" class="form-control" required>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary col-12">Insert</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-7">
+            <!-- List -->
+            <table class="table table-bordered table-hover">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Principal Direction</th>
+                        <th>Operation</th>
+                    </tr>
+                </thead>
+                <tbody>
+                     <% for(var i = 0; i < clients.length; i++){%>
+                        <tr>
+                            <td><%=i%></td>
+                            <td><%=clients[i].name%></td>
+                            <td><%=clients[i].direction[0]%></td>
+                            <td>
+                                <a href="/directions/<%=clients[i]._id%>" class="btn btn-info">See All Directions</a>
+                                <!-- <a href="/delete/<%=clients[i]._id%>" class="btn btn-danger">Delete</a>
+                                <a href="/edit/<%=clients[i]._id%>" class="btn btn-info">Edit</a> -->
+                            </td>
+                        </tr>
+                    <%}%>
+                    
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<%- include ("partials/_footer") %>

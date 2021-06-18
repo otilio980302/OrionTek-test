@@ -1,0 +1,53 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+</head>
+<body >
+    <nav class="navbar navbar-dark bg-dark">
+        
+        <a href="/" class="navbar-brand"> CRUD NodeMongo</a>
+    </nav>
+
+        <h2>Cliente: <%=client.name%></h2>
+
+        <form action="/addDirection" method="POST">
+
+            <input type="text" name="direction" class="form-group" required/>
+            <button type="submit" class="btn btn-primary">Add Direction</button>
+            <input type="text" style="visibility: collapse" name="id" class="form-group" value="<%=client.id%>"/>
+        </form>
+
+            <div class="form-group">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Directions</th>
+                            <th>Operations</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <%for(var i = 0; i < client.direction.length; i++){%>
+                        <tr>
+                            <td><%=client.direction[i]%></td>
+                            <td><a class="btn btn-danger" href="/deleteDirection/<%client._id%>/<%client.direction[i]%>">Delete</a></td>
+                        </tr>
+                        <%}%>
+                    </tbody>
+                </table>
+            </div>
+
+
+    </pre>
+
+
+
+</body>
+</html>
